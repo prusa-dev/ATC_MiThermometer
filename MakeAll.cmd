@@ -100,6 +100,9 @@ python3 utils\zb_bin_ota.py ZYZTH02P%SWVER%.bin zigbee_ota\ZYZTH02PBLE%SWVER% -m
 @del /Q "ZG227Z%SWVER%.bin"
 make -s -j PROJECT_NAME=ZG227Z%SWVER% POJECT_DEF="-DDEVICE_TYPE=DEVICE_ZG_227Z"
 @if not exist "ZG227Z%SWVER%.bin" goto :error
+@del /Q "ZG227ZS1%SWVER%.bin"
+make -s -j PROJECT_NAME=ZG227ZS1%SWVER% POJECT_DEF="-DDEVICE_TYPE=DEVICE_ZG_227Z -DUSE_SENSOR_MY18B20=1"
+@if not exist "ZG227ZS1%SWVER%.bin" goto :error
 python3 utils\zb_bin_ota.py ZG227Z%SWVER%.bin zigbee_ota\ZG227ZBLE%SWVER% -m0x1286 -i0x0203 -v0x10983001 -s"Sonoff to BLE"
 @del /Q "ZG303Z%SWVER%.bin"
 make -s -j PROJECT_NAME=ZG303Z%SWVER% POJECT_DEF="-DDEVICE_TYPE=DEVICE_ZG303Z"
